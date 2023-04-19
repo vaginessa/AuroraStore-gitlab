@@ -31,7 +31,6 @@ import com.aurora.gplayapi.data.models.Artwork
 import com.aurora.store.GlideApp
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewScreenshotLargeBinding
-import com.aurora.extensions.clear
 import com.aurora.extensions.px
 import com.aurora.extensions.runOnUiThread
 import com.aurora.store.view.epoxy.views.BaseView
@@ -110,10 +109,5 @@ class LargeScreenshotView : RelativeLayout {
                     return false
                 }
             }).submit()
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.img.clear()
     }
 }

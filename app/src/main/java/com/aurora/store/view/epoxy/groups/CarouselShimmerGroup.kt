@@ -27,7 +27,7 @@ import com.aurora.store.view.epoxy.views.shimmer.HeaderViewShimmerModel_
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CarouselShimmerGroup() :
+class CarouselShimmerGroup :
     EpoxyModelGroup(
         R.layout.model_carousel_group, buildModels()
     ) {

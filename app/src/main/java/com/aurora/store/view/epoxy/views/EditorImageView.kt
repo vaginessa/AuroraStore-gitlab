@@ -29,7 +29,6 @@ import com.airbnb.epoxy.OnViewRecycled
 import com.aurora.gplayapi.data.models.Artwork
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewEditorImageBinding
-import com.aurora.extensions.clear
 import com.aurora.extensions.load
 import com.aurora.extensions.px
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -90,10 +89,5 @@ class EditorImageView : RelativeLayout {
     @CallbackProp
     fun click(onClickListener: OnClickListener?) {
         B.root.setOnClickListener(onClickListener)
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.img.clear()
     }
 }

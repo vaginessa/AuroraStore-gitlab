@@ -43,6 +43,3 @@ fun Fragment.toast(resId: Int) = requireContext().toast(resId)
 
 fun Fragment.toast(text: CharSequence) = requireContext().toast(text)
 
-fun Fragment.toastLong(resId: Int) = requireContext().toastLong(resId)
-
-fun Fragment.toastLong(text: CharSequence) = requireContext().toastLong(text)

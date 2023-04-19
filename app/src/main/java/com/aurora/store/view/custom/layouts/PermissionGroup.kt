@@ -59,16 +59,6 @@ class PermissionGroup : LinearLayout {
         init()
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(
-        context: Context?,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
-        init()
-    }
-
     private fun init() {
         inflate(context, R.layout.layout_permission, this)
         packageManager = context.packageManager

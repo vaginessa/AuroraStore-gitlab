@@ -44,14 +44,12 @@ object Preferences {
     const val PREFERENCE_FILTER_FDROID = "PREFERENCE_FILTER_FDROID"
     const val PREFERENCE_FILTER_SEARCH = "PREFERENCE_FILTER_SEARCH"
 
-    const val PREFERENCE_AUTO_INSTALL = "PREFERENCE_AUTO_INSTALL"
     const val PREFERENCE_AUTO_DELETE = "PREFERENCE_AUTO_DELETE"
 
     const val INSTALLATION_ABANDON_SESSION = "INSTALLATION_ABANDON_SESSION"
 
     const val PREFERENCE_DOWNLOAD_ACTIVE = "PREFERENCE_DOWNLOAD_ACTIVE"
     const val PREFERENCE_DOWNLOAD_EXTERNAL = "PREFERENCE_DOWNLOAD_EXTERNAL"
-    const val PREFERENCE_DOWNLOAD_WIFI = "PREFERENCE_DOWNLOAD_WIFI"
 
     const val PREFERENCE_TOS_READ = "PREFERENCE_TOS_READ"
 
@@ -78,14 +76,6 @@ object Preferences {
         getPrefs(context).edit().putInt(key, value).apply()
     }
 
-    fun putFloat(context: Context, key: String, value: Float) {
-        getPrefs(context).edit().putFloat(key, value).apply()
-    }
-
-    fun putLong(context: Context, key: String, value: Long) {
-        getPrefs(context).edit().putLong(key, value).apply()
-    }
-
     fun putBoolean(context: Context, key: String, value: Boolean) {
         getPrefs(context).edit().putBoolean(key, value).apply()
     }
@@ -96,10 +86,6 @@ object Preferences {
 
     fun getInteger(context: Context, key: String): Int {
         return getPrefs(context).getInt(key, 0)
-    }
-
-    fun getFloat(context: Context, key: String): Float {
-        return getPrefs(context).getFloat(key, 0.0f)
     }
 
     fun getLong(context: Context, key: String): Long {

@@ -53,21 +53,8 @@ object Log {
         Log.d(TAG, message!!)
     }
 
-    fun w(message: String?, vararg args: Any?) {
-        w(String.format(message!!, *args))
-    }
-
     fun w(message: String?) {
         Log.w(TAG, message!!)
     }
 
-    fun writeToFile(context: Context, obj: Any) {
-        try {
-            val out = FileWriter(File(context.filesDir, "AuroraLogs.txt"))
-            out.write(obj.toString())
-            out.close()
-        } catch (e: IOException) {
-            e(e.message)
-        }
-    }
 }

@@ -79,13 +79,4 @@ class BadgeView : RelativeLayout {
             }
         }
     }
-
-    @CallbackProp
-    fun click(onClickListener: OnClickListener?) {
-
-    }
-
-    @OnViewRecycled
-    fun clear() {
-    }
 }

@@ -70,22 +70,4 @@ class DownloadManager private constructor(var context: Context) {
                 || fetchGroup.deletedDownloads.isNotEmpty()
     }
 
-    fun updateOngoingDownloads(
-        fetch: Fetch, packageList: MutableList<String?>, download: Download,
-        fetchListener: FetchListener?
-    ) {
-        if (packageList.contains(download.tag)) {
-            val packageName = download.tag
-            if (packageName != null) {
-                val groupIDsOfPackageName = RequestGroupIdBuilder.getGroupIDsForApp(context, packageName.hashCode())
-                groupIDsOfPackageName.forEach {
-                    fetch.deleteGroup(it)
-                }
-                packageList.remove(packageName)
-            }
-        }
-        if (packageList.size == 0) {
-            fetch.removeListener(fetchListener!!)
-        }
-    }
 }

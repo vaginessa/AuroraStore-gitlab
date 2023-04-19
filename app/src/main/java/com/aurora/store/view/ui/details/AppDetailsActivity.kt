@@ -114,7 +114,6 @@ class AppDetailsActivity : BaseDetailsActivity() {
     private lateinit var inProgressMarker: java.io.File
 
     private var isExternal = false
-    private var isNone = false
     private var status = Status.NONE
     private var isInstalled: Boolean = false
     private var isUpdatable: Boolean = false
@@ -144,43 +143,6 @@ class AppDetailsActivity : BaseDetailsActivity() {
     override fun onStop() {
         EventBus.getDefault().unregister(this)
         super.onStop()
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEventMainThread(event: Any) {
-        when (event) {
-            is BusEvent.InstallEvent -> {
-                if (app.packageName == event.packageName) {
-                    attachActions()
-                }
-            }
-            is BusEvent.UninstallEvent -> {
-                if (app.packageName == event.packageName) {
-                    attachActions()
-                }
-            }
-            is BusEvent.ManualDownload -> {
-                if (app.packageName == event.packageName) {
-                    app.versionCode = event.versionCode
-                    purchase()
-                }
-            }
-            is InstallerEvent.Failed -> {
-                if (app.packageName == event.packageName) {
-                    InstallErrorDialogSheet.newInstance(
-                        app,
-                        event.packageName,
-                        event.error,
-                        event.extra
-                    ).show(supportFragmentManager, "SED")
-                    attachActions()
-                    updateActionState(State.IDLE)
-                }
-            }
-            else -> {
-
-            }
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

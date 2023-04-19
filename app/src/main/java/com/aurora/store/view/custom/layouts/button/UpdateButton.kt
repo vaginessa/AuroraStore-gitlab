@@ -20,11 +20,8 @@
 package com.aurora.store.view.custom.layouts.button
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
-import com.aurora.extensions.getString
 import com.aurora.extensions.runOnUiThread
 import com.aurora.store.R
 import com.aurora.store.State
@@ -50,29 +47,9 @@ class UpdateButton : RelativeLayout {
         init(context)
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
-        init(context)
-    }
-
     private fun init(context: Context) {
         val view = inflate(context, R.layout.view_update_button, this)
         B = ViewUpdateButtonBinding.bind(view)
-    }
-
-    fun setText(text: String) {
-        B.viewFlipper.displayedChild = 0
-        B.btnPositive.text = text
-    }
-
-    fun setText(text: Int) {
-        B.viewFlipper.displayedChild = 0
-        B.btnPositive.text = getString(text)
     }
 
     fun updateState(state: State) {

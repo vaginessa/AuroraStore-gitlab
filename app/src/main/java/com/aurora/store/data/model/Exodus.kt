@@ -25,7 +25,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ExodusReport {
-    val creator: String = String()
     val name: String = String()
     val reports: List<Report> = listOf()
 }
@@ -35,21 +34,9 @@ class Report {
     val downloads: String = String()
     val version: String = String()
     val creationDate: String = String()
-    val updatedAt: String = String()
     val versionCode: String = String()
     val trackers: List<Int> = listOf()
 
-    fun getFormattedCreationDate(): String {
-        return try {
-            val simpleDateFormat: DateFormat = SimpleDateFormat(
-                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                Locale.getDefault()
-            )
-            simpleDateFormat.parse(creationDate).toString()
-        } catch (e: ParseException) {
-            ""
-        }
-    }
 }
 
 class ExodusTracker {

@@ -84,16 +84,4 @@ object NavigationUtil {
         }
     }
 
-    fun openSearchActivity(context: Context) {
-        val intent = Intent(
-            context,
-            SearchResultsActivity::class.java
-        )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val options = ActivityOptions.makeSceneTransitionAnimation(context as AppCompatActivity)
-            context.startActivity(intent, options.toBundle())
-        } else {
-            context.startActivity(intent)
-        }
-    }
 }

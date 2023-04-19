@@ -157,8 +157,3 @@ inline fun ImageView.loadAny(
         .apply(RequestOptions().apply(requestOptions))
         .into(this)
 }
-
-@JvmSynthetic
-fun ImageView.clear() {
-    //Glide.with(this).clear(this)
-}

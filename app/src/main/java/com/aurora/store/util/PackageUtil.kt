@@ -106,19 +106,6 @@ object PackageUtil {
         return context.packageManager.getPackageInfo(packageName!!, 0)
     }
 
-    fun getAllPackages(context: Context): List<PackageInfo> {
-        val packageInfoSet: MutableList<PackageInfo> = mutableListOf()
-        val packageManager: PackageManager = context.packageManager
-        val flags: Int = getAllFlags()
-        val packageInfoList: List<PackageInfo> = packageManager.getInstalledPackages(flags)
-        for (packageInfo in packageInfoList) {
-            if (packageInfo.packageName != null && packageInfo.applicationInfo != null) {
-                packageInfoSet.add(packageInfo)
-            }
-        }
-        return packageInfoSet
-    }
-
     fun getPackageInfoMap(context: Context): MutableMap<String, PackageInfo> {
         val packageInfoSet: MutableMap<String, PackageInfo> = mutableMapOf()
         val packageManager: PackageManager = context.packageManager

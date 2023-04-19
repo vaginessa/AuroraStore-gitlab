@@ -67,8 +67,4 @@ class InfoView : RelativeLayout {
             .capitalize(Locale.getDefault())
         B.txtSubtitle.text = info.value
     }
-
-    @OnViewRecycled
-    fun clear() {
-    }
 }

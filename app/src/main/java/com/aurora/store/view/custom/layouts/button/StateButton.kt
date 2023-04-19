@@ -20,11 +20,9 @@
 package com.aurora.store.view.custom.layouts.button
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewStateButtonBinding
@@ -46,16 +44,6 @@ class StateButton : RelativeLayout {
         attrs,
         defStyleAttr
     ) {
-        init(context, attrs)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs)
     }
 

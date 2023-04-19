@@ -595,37 +595,6 @@ class UpdateService: LifecycleService() {
 
     var timerLock = Object()
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onEventBackgroundThreadExec(event: Any) {
-        when (event) {
-            is InstallerEvent.Success,
-            is InstallerEvent.Cancelled,
-            is InstallerEvent.Failed -> {
-                when (event) {
-                    is InstallerEvent.Success -> event.packageName
-                    is InstallerEvent.Cancelled -> event.packageName
-                    is InstallerEvent.Failed -> event.packageName
-                    else -> null
-                }?.run {
-                    removeFromInstalling(this)
-                }
-                synchronized(timerLock) {
-                    if (timer != null) {
-                        timer!!.cancel()
-                        timer = null
-                    }
-                    if (timer == null) {
-                        timer = Timer()
-                    }
-                    timer!!.schedule(timerTask { timerTaskRun.run() }, 5 * 1000)
-                }
-            }
-            else -> {
-
-            }
-        }
-    }
-
     fun registerFetchListener(listener: FetchGroupListener) {
         fetchListeners.add(listener)
         val iterator = fetchPendingEvents.iterator()
@@ -648,14 +617,6 @@ class UpdateService: LifecycleService() {
             listener.onAppMetadataStatusError(item.reason, item.app)
             iterator.remove()
         }
-    }
-
-    fun unregisterAppMetadataListener(listener: AppMetadataStatusListener) {
-        appMetadataListeners.remove(listener)
-    }
-
-    fun unregisterFetchListener(listener: AbstractFetchGroupListener) {
-        fetchListeners.remove(listener)
     }
 
     private var binder: UpdateServiceBinder = UpdateServiceBinder()

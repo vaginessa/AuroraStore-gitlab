@@ -255,7 +255,7 @@ class MainActivity : BaseActivity() {
                     SelfUpdate::class.java
                 )
 
-                selfUpdate?.let { it ->
+                selfUpdate?.let {
                     if (it.versionCode > BuildConfig.VERSION_CODE) {
                         if (isFDroidApp(this, BuildConfig.APPLICATION_ID)) {
                             if (it.fdroidBuild.isNotEmpty()) {

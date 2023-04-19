@@ -71,8 +71,4 @@ class ExodusView : RelativeLayout {
     fun click(onClickListener: OnClickListener?) {
         B.root.setOnClickListener(onClickListener)
     }
-
-    @OnViewRecycled
-    fun clear() {
-    }
 }

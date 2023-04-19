@@ -29,7 +29,6 @@ import com.airbnb.epoxy.OnViewRecycled
 import com.aurora.gplayapi.data.models.Review
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewReviewBinding
-import com.aurora.extensions.clear
 import com.aurora.extensions.load
 import com.aurora.extensions.toDate
 import com.aurora.store.view.epoxy.views.BaseView
@@ -90,10 +89,5 @@ class ReviewView : RelativeLayout {
     @CallbackProp
     fun longClick(onClickListener: OnLongClickListener?) {
         B.root.setOnLongClickListener(onClickListener)
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.img.clear()
     }
 }

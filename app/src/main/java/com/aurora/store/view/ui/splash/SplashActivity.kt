@@ -62,7 +62,7 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this)
 
         B = ActivitySplashBinding.inflate(layoutInflater)
         VM = ViewModelProvider(this).get(AuthViewModel::class.java)
@@ -157,23 +157,6 @@ class SplashActivity : BaseActivity() {
     override fun onDestroy() {
         EventBus.getDefault().unregister(this)
         super.onDestroy()
-    }
-
-    @Subscribe()
-    fun onEventReceived(event: BusEvent) {
-        when (event) {
-            is BusEvent.GoogleAAS -> {
-                if (event.success) {
-                    updateStatus(getString(R.string.session_verifying_google))
-                    VM.buildGoogleAuthData(event.email, event.aasToken)
-                } else {
-                    updateStatus(getString(R.string.session_login_failed_google))
-                }
-            }
-            else -> {
-
-            }
-        }
     }
 
     private fun updateStatus(string: String?) {

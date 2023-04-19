@@ -41,13 +41,8 @@ class UIPreference : PreferenceFragmentCompat() {
         themePreference?.let {
             it.setOnPreferenceChangeListener { _, newValue ->
                 val themeId = Integer.parseInt(newValue.toString())
-                val accentId = Preferences.getInteger(
-                    requireContext(),
-                    Preferences.PREFERENCE_THEME_ACCENT
-                )
 
                 save(Preferences.PREFERENCE_THEME_TYPE, themeId)
-
                 applyTheme(themeId, shouldApplyTransition = false)
 
                 SettingsActivity.shouldRestart = true

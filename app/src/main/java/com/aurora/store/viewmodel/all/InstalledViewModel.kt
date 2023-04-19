@@ -52,24 +52,6 @@ class InstalledViewModel(application: Application) : BaseAppsViewModel(applicati
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onEvent(event: BusEvent) {
-        when (event) {
-            is BusEvent.InstallEvent -> {
-                updateListAndPost(event.packageName)
-            }
-            is BusEvent.UninstallEvent -> {
-                updateListAndPost(event.packageName)
-            }
-            is BusEvent.Blacklisted -> {
-                observe()
-            }
-            else -> {
-
-            }
-        }
-    }
-
     private fun updateListAndPost(packageName: String) {
         //Remove from current list
         val updatedList = appList.filter {

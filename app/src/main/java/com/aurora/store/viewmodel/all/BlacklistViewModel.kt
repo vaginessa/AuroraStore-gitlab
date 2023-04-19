@@ -81,7 +81,4 @@ class BlacklistViewModel(application: Application) : BaseAndroidViewModel(applic
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
 }

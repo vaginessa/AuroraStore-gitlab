@@ -29,7 +29,6 @@ import com.airbnb.epoxy.OnViewRecycled
 import com.aurora.gplayapi.data.models.Artwork
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewScreenshotBinding
-import com.aurora.extensions.clear
 import com.aurora.extensions.load
 import com.aurora.extensions.px
 import com.aurora.store.view.epoxy.views.BaseView
@@ -117,10 +116,5 @@ class ScreenshotView : RelativeLayout {
         B.img.setOnClickListener {
             screenshotCallback?.onClick(position)
         }
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.img.clear()
     }
 }

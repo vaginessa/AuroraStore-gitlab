@@ -58,10 +58,6 @@ class ActionHeaderLayout : RelativeLayout {
         }
     }
 
-    fun setHeader(header: String?) {
-        B.txtTitle.text = header
-    }
-
     fun addClickListener(onclickListener: OnClickListener?) {
         B.imgAction.visibility = View.VISIBLE
         B.imgAction.setOnClickListener(onclickListener)

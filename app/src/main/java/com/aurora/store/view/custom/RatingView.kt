@@ -20,10 +20,8 @@
 package com.aurora.store.view.custom
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewRatingBinding
 
@@ -42,23 +40,13 @@ class RatingView : RelativeLayout {
         init(context)
     }
 
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ) {
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(
-        context: Context?,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
-    }
+    )
 
     private fun init(context: Context) {
         val view = inflate(context, R.layout.view_rating, this)

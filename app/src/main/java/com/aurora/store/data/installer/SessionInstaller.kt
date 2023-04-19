@@ -99,7 +99,7 @@ class SessionInstaller(context: Context) : InstallerBase(context) {
             val callBackIntent = Intent(context, InstallerService::class.java)
             val flags = if (isSAndAbove())
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE else
-                    PendingIntent.FLAG_UPDATE_CURRENT;
+                    PendingIntent.FLAG_UPDATE_CURRENT
             val pendingIntent = PendingIntent.getService(
                 context,
                 sessionId,

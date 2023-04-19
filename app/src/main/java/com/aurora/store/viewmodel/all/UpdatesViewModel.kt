@@ -82,45 +82,6 @@ class UpdatesViewModel(application: Application) : BaseAppsViewModel(application
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onBusEvent(event: BusEvent) {
-        when (event) {
-            is BusEvent.InstallEvent -> {
-                updateListAndPost(event.packageName)
-            }
-            is BusEvent.UninstallEvent -> {
-                updateListAndPost(event.packageName)
-            }
-            is BusEvent.Blacklisted -> {
-                updateListAndPost(event.packageName)
-            }
-            else -> {
-
-            }
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onInstallerEvent(event: InstallerEvent) {
-        when (event) {
-            is InstallerEvent.Success -> {
-
-            }
-            is InstallerEvent.Cancelled -> {
-
-            }
-            is InstallerEvent.Failed -> {
-                val packageName = event.packageName
-                packageName?.let {
-                    val groupIDsOfPackageName = RequestGroupIdBuilder.getGroupIDsForApp(getApplication<Application>().applicationContext, packageName.hashCode())
-                    groupIDsOfPackageName.forEach {
-                        updateDownload(it, null, true)
-                    }
-                }
-            }
-        }
-    }
-
     fun updateState(id: Int, state: State) {
         updateFileMap[id]?.state = state
         liveUpdateData.postValue(updateFileMap)

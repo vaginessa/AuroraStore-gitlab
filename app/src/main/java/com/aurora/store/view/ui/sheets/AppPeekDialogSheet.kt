@@ -53,7 +53,7 @@ class AppPeekDialogSheet : BaseBottomSheet() {
         inflater: LayoutInflater,
         container: ViewGroup,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         B = SheetAppPeekBinding.inflate(inflater, container, false)
         val bundle = arguments
         if (bundle != null) {

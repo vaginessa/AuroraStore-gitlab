@@ -34,7 +34,6 @@ import com.aurora.store.databinding.ViewDownloadBinding
 import com.aurora.store.util.CommonUtil.getDownloadSpeedString
 import com.aurora.store.util.CommonUtil.getETAString
 import com.aurora.store.util.CommonUtil.humanReadableByteValue
-import com.aurora.extensions.clear
 import com.aurora.extensions.load
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -137,10 +136,5 @@ class DownloadView : RelativeLayout {
     @CallbackProp
     fun longClick(onClickListener: OnLongClickListener?) {
         B.root.setOnLongClickListener(onClickListener)
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.imgDownload.clear()
     }
 }

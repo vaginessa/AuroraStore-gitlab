@@ -108,15 +108,6 @@ fun AppCompatActivity.setLightConfiguration() {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.R)
-private fun AppCompatActivity.setLightConfigurationR() {
-    window?.insetsController?.setSystemBarsAppearance(
-        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                or WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS,
-        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-    )
-}
-
 private fun AppCompatActivity.setLightConfigurationO() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         setLightStatusBar()

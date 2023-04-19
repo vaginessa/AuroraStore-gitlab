@@ -45,10 +45,6 @@ fun isPAndAbove(): Boolean {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
 }
 
-fun isQAndAbove(): Boolean {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-}
-
 fun isRAndAbove(): Boolean {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
 }
@@ -69,15 +65,6 @@ fun isHuawei(): Boolean {
     return Build.MANUFACTURER.lowercase(Locale.getDefault()).contains("huawei")
             || Build.HARDWARE.lowercase(Locale.getDefault()).contains("kirin")
             || Build.HARDWARE.lowercase(Locale.getDefault()).contains("hi3")
-}
-
-fun getMIUIVersion(): String {
-    val version = getSystemProperty("ro.miui.ui.version.name")
-    val versionCode = getSystemProperty("ro.miui.ui.version.code")
-    return if (version.isNotEmpty() && versionCode.isNotEmpty())
-        "$version.$versionCode"
-    else
-        "unknown"
 }
 
 @SuppressLint("PrivateApi")

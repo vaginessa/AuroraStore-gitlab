@@ -30,7 +30,6 @@ import com.aurora.gplayapi.data.models.App
 import com.aurora.store.R
 import com.aurora.store.databinding.ViewAppBinding
 import com.aurora.store.util.CommonUtil
-import com.aurora.extensions.clear
 import com.aurora.extensions.load
 import com.aurora.store.view.epoxy.views.BaseView
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -85,10 +84,5 @@ class AppView : RelativeLayout {
     @CallbackProp
     fun longClick(onClickListener: OnLongClickListener?) {
         B.root.setOnLongClickListener(onClickListener)
-    }
-
-    @OnViewRecycled
-    fun clear() {
-        B.imgIcon.clear()
     }
 }

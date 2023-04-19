@@ -58,10 +58,6 @@ object PathUtil {
         return getVersionDirectory(context, app.packageName, app.versionCode) + "/${file.name}"
     }
 
-    fun getApkDownloadFile(context: Context, packageName: String, versionCode: Int): String {
-        return getVersionDirectory(context, packageName, versionCode)
-    }
-
     fun getExternalPath(): String {
         return Environment.getExternalStorageDirectory().toString() + "/Aurora/Store"
     }

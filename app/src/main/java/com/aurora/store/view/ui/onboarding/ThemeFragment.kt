@@ -118,7 +118,7 @@ class ThemeFragment : BaseFragment() {
     private fun animate(view: View) {
         if (Build.VERSION.SDK_INT >= 21) {
             if (B.themeSwitchImage.isVisible()) {
-                return;
+                return
             }
             try {
                 val pos = IntArray(2)

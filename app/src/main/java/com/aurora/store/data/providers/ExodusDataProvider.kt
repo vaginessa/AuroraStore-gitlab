@@ -35,10 +35,6 @@ class ExodusDataProvider private constructor(val context: Context) {
         exodusTrackers = loadLocalTrackers()
     }
 
-    fun getLocalTrackers(): JSONObject {
-        return exodusTrackers
-    }
-
     fun getFilteredTrackers(trackerIds: List<Int>): List<JSONObject> {
         return trackerIds.map {
             exodusTrackers.getJSONObject(

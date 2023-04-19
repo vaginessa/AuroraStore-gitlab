@@ -350,67 +350,6 @@ class NotificationService : Service() {
         return PendingIntent.getActivity(this, 0, intent, flags)
     }
 
-    private fun getInstallIntent(packageName: String): PendingIntent {
-        val intent = Intent(this, InstallReceiver::class.java)
-        intent.putExtra(Constants.STRING_EXTRA, packageName)
-        val flags = if (isMAndAbove())
-            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        else PendingIntent.FLAG_CANCEL_CURRENT
-        return PendingIntent.getBroadcast(
-            this,
-            packageName.hashCode(),
-            intent,
-            flags
-        )
-    }
-
-    @Subscribe()
-    fun onEventMainThread(event: Any) {
-        when (event) {
-            is InstallerEvent.Success -> {
-                val groupIDsOfPackageName = RequestGroupIdBuilder.getGroupIDsForApp(this, event.packageName.hashCode())
-                var app: App? = null
-                for (item in groupIDsOfPackageName) {
-                    app = appMap[item]
-                    if (app != null) {
-                        break
-                    }
-                }
-                if (app != null)
-                    notifyInstallationStatus(app, event.extra)
-            }
-            is InstallerEvent.Failed -> {
-                val groupIDsOfPackageName = RequestGroupIdBuilder.getGroupIDsForApp(this, event.packageName.hashCode())
-                var app: App? = null
-                for (item in groupIDsOfPackageName) {
-                    app = appMap[item]
-                    if (app != null) {
-                        break
-                    }
-                }
-                if (app != null)
-                    notifyInstallationStatus(app, event.error)
-            }
-            else -> {
-
-            }
-        }
-    }
-
-    @Synchronized
-    private fun install(packageName: String, files: List<Download>) {
-        AppInstaller.getInstance(this)
-            .getPreferredInstaller()
-            .install(
-                packageName,
-                files
-                    .filter { it.file.endsWith(".apk") }
-                    .map {
-                        it.file
-                    }.toList()
-            )
-    }
-
     private fun notifyInstallationStatus(app: App, status: String?) {
         val builder = NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ALERT)
         builder.color = getStyledAttributeColor(R.attr.colorAccent)
@@ -431,7 +370,7 @@ class NotificationService : Service() {
     override fun onDestroy() {
         Log.i("Notification Service Stopped")
         fetch.removeListener(fetchListener)
-        EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this)
         super.onDestroy()
     }
 }

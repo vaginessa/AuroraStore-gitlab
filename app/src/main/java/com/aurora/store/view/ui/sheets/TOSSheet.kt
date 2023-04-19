@@ -86,8 +86,8 @@ class TOSSheet : BaseBottomSheet() {
             task {
                 TimeUnit.SECONDS.sleep(2)
             } success {
-                requireActivity().finish();
-                exitProcess(0);
+                requireActivity().finish()
+                exitProcess(0)
             }
         }
     }

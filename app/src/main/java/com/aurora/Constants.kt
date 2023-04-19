@@ -21,7 +21,6 @@ package com.aurora
 
 object Constants {
     const val INT_EXTRA = "INT_EXTRA"
-    const val FLOAT_EXTRA = "FLOAT_EXTRA"
     const val STRING_APP = "STRING_APP"
     const val STRING_EXTRA = "STRING_EXTRA"
     const val BROWSE_EXTRA = "BROWSE_EXTRA"
@@ -29,7 +28,6 @@ object Constants {
     const val FETCH_GROUP_ID = "FETCH_GROUP_ID"
     const val APP_ID = "com.aurora.store"
 
-    const val EXODUS_BASE_URL = "https://reports.exodus-privacy.eu.org/api/search/"
     const val EXODUS_REPORT_URL = "https://reports.exodus-privacy.eu.org/reports/"
     const val SHARE_URL = "https://play.google.com/store/apps/details?id="
     const val TOS_URL = "https://gitlab.com/AuroraOSS/AuroraStore/-/blob/master/TermsOfService.md"

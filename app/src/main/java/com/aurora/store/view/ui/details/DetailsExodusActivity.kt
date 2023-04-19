@@ -69,9 +69,7 @@ class DetailsExodusActivity : BaseActivity() {
             )
             app.let {
                 attachToolbar()
-                report.let {
-                    updateController(getExodusTrackersFromReport(report))
-                }
+                updateController(getExodusTrackersFromReport(report))
             }
         }
     }
